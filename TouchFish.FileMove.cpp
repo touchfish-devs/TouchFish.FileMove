@@ -131,9 +131,9 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    hInst = hInstance; // 将实例句柄存储在全局变量中
 
    // 创建主窗口，固定大小
-   HWND hWnd = CreateWindowW(szWindowClass, L"TouchFish FileMove 文件移动器", 
+   HWND hWnd = CreateWindowW(szWindowClass, L"TouchFish.FileMove 文件移动器", 
       WS_OVERLAPPED | WS_CAPTION | WS_SYSMENU | WS_MINIMIZEBOX,
-      CW_USEDEFAULT, 0, 620, 380, nullptr, nullptr, hInstance, nullptr);
+      CW_USEDEFAULT, 0, 640, 380, nullptr, nullptr, hInstance, nullptr);
 
    if (!hWnd)
    {
@@ -262,48 +262,48 @@ void CreateUIControls(HWND hwnd)
     InitCommonControlsEx(&icex);
 
     HFONT hFont = CreateFontW(
-        18, 0, 0, 0, FW_NORMAL, FALSE, FALSE, FALSE,
+        20, 0, 0, 0, FW_NORMAL, FALSE, FALSE, FALSE,
         DEFAULT_CHARSET, OUT_DEFAULT_PRECIS, CLIP_DEFAULT_PRECIS,
         CLEARTYPE_QUALITY, DEFAULT_PITCH | FF_DONTCARE,
-        L"Microsoft YaHei UI"
+        L"SimSun"
     );
-
-    // 源文件夹标签
-    HWND hLabel1 = CreateWindowW(L"STATIC", L"源文件夹:",
+    
+    // 源目录标签
+    HWND hLabel1 = CreateWindowW(L"STATIC", L"源目录:",
         WS_CHILD | WS_VISIBLE | SS_LEFT,
-        20, 25, 100, 25,
+        20, 25, 80, 25,
         hwnd, NULL, hInst, NULL);
     SendMessage(hLabel1, WM_SETFONT, (WPARAM)hFont, TRUE);
 
-    // 源文件夹编辑框
+    // 源目录编辑框
     g_hSourceEdit = CreateWindowExW(WS_EX_CLIENTEDGE, L"EDIT", L"",
         WS_CHILD | WS_VISIBLE | ES_LEFT | ES_AUTOHSCROLL,
         20, 55, 460, 30,
         hwnd, (HMENU)IDC_SOURCE_EDIT, hInst, NULL);
     SendMessage(g_hSourceEdit, WM_SETFONT, (WPARAM)hFont, TRUE);
 
-    // 源文件夹浏览按钮
+    // 源目录浏览按钮
     g_hSourceButton = CreateWindowW(L"BUTTON", L"浏览...",
         WS_CHILD | WS_VISIBLE | BS_PUSHBUTTON,
         490, 55, 90, 30,
         hwnd, (HMENU)IDC_SOURCE_BUTTON, hInst, NULL);
     SendMessage(g_hSourceButton, WM_SETFONT, (WPARAM)hFont, TRUE);
 
-    // 目标文件夹标签
-    HWND hLabel2 = CreateWindowW(L"STATIC", L"目标文件夹:",
+    // 目标目录标签
+    HWND hLabel2 = CreateWindowW(L"STATIC", L"目标目录:",
         WS_CHILD | WS_VISIBLE | SS_LEFT,
         20, 105, 100, 25,
         hwnd, NULL, hInst, NULL);
     SendMessage(hLabel2, WM_SETFONT, (WPARAM)hFont, TRUE);
 
-    // 目标文件夹编辑框
+    // 目标目录编辑框
     g_hDestEdit = CreateWindowExW(WS_EX_CLIENTEDGE, L"EDIT", L"",
         WS_CHILD | WS_VISIBLE | ES_LEFT | ES_AUTOHSCROLL,
         20, 135, 460, 30,
         hwnd, (HMENU)IDC_DEST_EDIT, hInst, NULL);
     SendMessage(g_hDestEdit, WM_SETFONT, (WPARAM)hFont, TRUE);
 
-    // 目标文件夹浏览按钮
+    // 目标目录浏览按钮
     g_hDestButton = CreateWindowW(L"BUTTON", L"浏览...",
         WS_CHILD | WS_VISIBLE | BS_PUSHBUTTON,
         490, 135, 90, 30,
@@ -328,7 +328,7 @@ void CreateUIControls(HWND hwnd)
         22, 0, 0, 0, FW_BOLD, FALSE, FALSE, FALSE,
         DEFAULT_CHARSET, OUT_DEFAULT_PRECIS, CLIP_DEFAULT_PRECIS,
         CLEARTYPE_QUALITY, DEFAULT_PITCH | FF_DONTCARE,
-        L"Microsoft YaHei UI"
+        L"SimSun"
     );
     SendMessage(g_hMoveButton, WM_SETFONT, (WPARAM)hButtonFont, TRUE);
 
