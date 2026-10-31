@@ -1,6 +1,10 @@
+> 本项目已迁移至 https://github.com/touchfish-devs/TouchFish.FileMove
+
 # TouchFish 文件移动器
 ![Platform](https://img.shields.io/badge/platform-Windows-lightgrey.svg)
 ![Language](https://img.shields.io/badge/language-C++-orange.svg)
+
+
 
 一个高效的 Windows 文件移动工具，支持符号链接创建，界面美观，操作流畅，使用 C++ 开发！
 
